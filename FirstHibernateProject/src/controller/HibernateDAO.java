@@ -94,8 +94,8 @@ public boolean snimiUsera(User user) {
 			sesija.close();
 		}
 	}
-	
-	public void linkujUseraIAuto (int idCar, int idUser) {
+	//Metoda za 1 to 1
+	/*public void linkujUseraIAuto (int idCar, int idUser) {
 		Session sesija = factory.openSession();
 		sesija.beginTransaction();
 		
@@ -118,7 +118,7 @@ public boolean snimiUsera(User user) {
 		}finally {
 			sesija.close();
 		}
-	}
+	}*/
 	
 	
 }
