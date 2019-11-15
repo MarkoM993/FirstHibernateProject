@@ -11,8 +11,9 @@ public class GlavnaHibernateKlasa {
 	public static void main(String[] args) {
 
 		HibernateDAO dao = new HibernateDAO();
+		dao.linkujUseraIAuto(1, 1);
 		
-		Car car = new Car("land rover", "discovery", 2018, 39990, false, VrstaVozila.SUV);
+		/*Car car = new Car("land rover", "discovery", 2018, 39990, false, VrstaVozila.SUV);
 		
 		VisitCard visitCard = new VisitCard();
 			visitCard.setIme("Ruzica");
@@ -26,8 +27,9 @@ public class GlavnaHibernateKlasa {
 			user.setVisitCard(visitCard);
 			
 			
+			
 		dao.snimiAutoUBazu(car);
-		dao.snimiUsera(user);
+		dao.snimiUsera(user);*/
 		
 		
 	
