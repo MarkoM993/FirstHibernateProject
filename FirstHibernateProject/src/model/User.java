@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,9 +27,9 @@ public class User {
 	private String password;
 	@Column(name = "balance")
 	private double novcanik;
-	@Embedded
-	private VisitCard visitCard;
-	@OneToMany
+	@ElementCollection 
+	private List <VisitCard> visitCards = new ArrayList<VisitCard>();
+	@OneToMany (fetch = FetchType.EAGER, mappedBy = "korisnik")
 	private List<Car> automobili = new ArrayList<Car>();
 	
 	
@@ -39,6 +41,13 @@ public class User {
 		this.automobili = automobili;
 	}
 	
+	
+	public List<VisitCard> getVisitCards() {
+		return visitCards;
+	}
+	public void setVisitCards(List<VisitCard> visitCards) {
+		this.visitCards = visitCards;
+	}
 	public int getIdUser() {
 		return idUser;
 	}
@@ -63,12 +72,7 @@ public class User {
 	public void setNovcanik(double novcanik) {
 		this.novcanik = novcanik;
 	}
-	public VisitCard getVisitCard() {
-		return visitCard;
-	}
-	public void setVisitCard(VisitCard visitCard) {
-		this.visitCard = visitCard;
-	}
+	
 	
 	
 

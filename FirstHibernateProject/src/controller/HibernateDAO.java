@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -152,12 +153,15 @@ public class HibernateDAO {
 		user.setAutomobili(listaAutomobila);
 		
 		double krajnjaCena = 0;
-		for(Car car: listaAutomobila) {
-			krajnjaCena += car.getCena();
-		}
+		
 		
 		user.setNovcanik(user.getNovcanik() - krajnjaCena);
 		try {
+			for(Car car: listaAutomobila) {
+				car.setKorisnik(user);
+				sesija.update(car);
+				krajnjaCena += car.getCena();
+			}
 			sesija.update(user);
 			sesija.getTransaction().commit();
 			System.out.println("Sve je OK");
@@ -175,8 +179,16 @@ public class HibernateDAO {
 		List<Car> automobili = new ArrayList<Car>();
 		
 		try {
+			//lazy initialize - rucno preuzimanje liste koje je obavezno
+			
+			/*User u = sesija.get(User.class, user.getIdUser());
+			
+			//u.getAutomobili().size();
+			
+			Hibernate.initialize(u);*/
+			
 			automobili = user.getAutomobili();
-			;
+			
 			System.out.println("Korisnik " + user.getUserName() + " je kupio/la ");
 			
 			
