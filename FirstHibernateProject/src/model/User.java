@@ -21,8 +21,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "korisnik")
-@Inheritance (strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn (discriminatorType = DiscriminatorType.STRING, name = "User_type")
+@Inheritance (strategy = InheritanceType.JOINED)
 public class User {
 	
 	@Id

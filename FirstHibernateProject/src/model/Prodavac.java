@@ -4,7 +4,6 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue ("Sales_manager")
 public class Prodavac extends User {
 	
 	private int pib;
