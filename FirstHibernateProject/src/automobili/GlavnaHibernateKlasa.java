@@ -5,6 +5,8 @@ import java.util.List;
 
 import controller.HibernateDAO;
 import model.Car;
+import model.Kupac;
+import model.Prodavac;
 import model.User;
 import model.VisitCard;
 import model.VrstaVozila;
@@ -15,7 +17,24 @@ public class GlavnaHibernateKlasa {
 
 		HibernateDAO dao = new HibernateDAO();
 		
-		Car auto1 = dao.vratiAuto(1);
+		User user = new User();
+			user.setUserName("Pera");
+		
+		Prodavac prodavac = new Prodavac();
+			prodavac.setUserName("Elvis");
+			prodavac.setPib(1);
+			
+		Kupac kupac = new Kupac();
+			kupac.setUserName("Milica");
+			kupac.setJmbg("1234567890123");
+			
+		dao.snimiUsera(user);
+		dao.snimiUsera(prodavac);
+		dao.snimiUsera(kupac);
+		
+		
+		
+		/*Car auto1 = dao.vrat/iAuto(1);
 		Car auto2 = dao.vratiAuto(3);
 		
 		List<Car> ruziniAutici = new ArrayList<Car>();
@@ -26,10 +45,10 @@ public class GlavnaHibernateKlasa {
 		
 		if(dao.daLiUserImaDovoljnoParaZaAutomobile(user, ruziniAutici)) {
 			dao.spojUseraIAuto(user, ruziniAutici);
-		}
+		}*/
 		
 		
-		
+
 	/*	Car car1 = new Car("crysler", "300c", 2019, 35000, false, VrstaVozila.PUTNICKO);
 		Car car2 = new Car("dodge", "caliber", 2017, 10000, false, VrstaVozila.PUTNICKO);
 		Car car3 = new Car("lexus", "lc500", 2019, 110000, true, VrstaVozila.PUTNICKO);
