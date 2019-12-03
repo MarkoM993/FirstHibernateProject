@@ -17,21 +17,53 @@ public class GlavnaHibernateKlasa {
 
 		HibernateDAO dao = new HibernateDAO();
 		
-		User user = new User();
-			user.setUserName("Pera");
+		User kupac = dao.vratiUsera(4);
 		
-		Prodavac prodavac = new Prodavac();
-			prodavac.setUserName("Elvis");
-			prodavac.setPib(1);
+		Car car1 = dao.vratiAuto(1);
+		Car car2 = dao.vratiAuto(2);
+		
+		List<Car> automobili = new ArrayList<Car>();
+			automobili.add(car1);
+			automobili.add(car2);
+		
+		dao.spojUseraIAuto(kupac, automobili);
+		
+		/*VisitCard visitKarta = new VisitCard();
+			visitKarta.setIme("Sone");
+			visitKarta.setEmail("nenad@gmail.com");
+			visitKarta.setBrojTelefona("064111333");
+		
+		List<VisitCard> kartice = new ArrayList<VisitCard>();
+			kartice.add(visitKarta);
 			
 		Kupac kupac = new Kupac();
-			kupac.setUserName("Milica");
-			kupac.setJmbg("1234567890123");
+			kupac.setUserName("Nenad");
+			kupac.setNovcanik(3000000);
+			kupac.setJmbg("9876543210987");
+			kupac.setPassword("nenad123");
+			kupac.setVisitCards(kartice);
 			
-		dao.snimiUsera(user);
-		dao.snimiUsera(prodavac);
+		
 		dao.snimiUsera(kupac);
 		
+		Car car1 = new Car();
+			car1.setMarka("Fiat");
+			car1.setModel("Punto");
+			car1.setCena(3000);
+			car1.setGodiste(2005);
+			car1.setRegistracija(true);
+			car1.setVrstaVozila(VrstaVozila.PUTNICKO);
+			
+		Car car2 = new Car();
+			car2.setMarka("BMW");
+			car2.setModel("740");
+			car2.setCena(50000);
+			car2.setGodiste(2018);
+			car2.setRegistracija(true);
+			car2.setVrstaVozila(VrstaVozila.PUTNICKO);
+			
+		dao.snimiAutoUBazu(car1);
+		dao.snimiAutoUBazu(car2);*/
 		
 		
 		/*Car auto1 = dao.vrat/iAuto(1);

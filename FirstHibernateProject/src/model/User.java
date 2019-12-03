@@ -21,11 +21,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "korisnik")
-@Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance (strategy = InheritanceType.JOINED)
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUser;
 	@Column(name = "user_name")
 	private String userName;
